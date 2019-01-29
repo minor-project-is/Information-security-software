@@ -31,6 +31,7 @@ public class input extends javax.swing.JFrame {
         di.addElement("4. BLOW FISH");
         di.addElement("5. DES");
         jList1.setModel(di);
+        
        
     }
 
@@ -59,9 +60,10 @@ public class input extends javax.swing.JFrame {
         textField2 = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        textField3 = new java.awt.TextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        textArea1 = new java.awt.TextArea();
+        jButton2 = new javax.swing.JButton();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -108,14 +110,6 @@ public class input extends javax.swing.JFrame {
             }
         });
 
-        textField3.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 18)); // NOI18N
-        textField3.setText("");
-        textField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField3ActionPerformed(evt);
-            }
-        });
-
         jList1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 3, 18)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item ", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -123,6 +117,16 @@ public class input extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
+
+        textArea1.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 18)); // NOI18N
+
+        jButton2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jButton2.setText("Decrypt");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,25 +140,27 @@ public class input extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jButton1)))
-                                .addGap(137, 137, 137))))
+                                    .addGap(137, 137, 137))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(29, 29, 29)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(jButton1)
+                                .addGap(40, 40, 40)
+                                .addComponent(jButton2)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -171,11 +177,13 @@ public class input extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(32, 32, 32))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,11 +192,27 @@ public class input extends javax.swing.JFrame {
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String filename=textField1.getText(),filename1="C:\\Users\\nEW u\\Desktop\\demo1.txt";
+        String filename=textField1.getText(),filename1="";
+        
+        
+        
+        /*creating output file*/
+        char c='.';
+        int j=filename.length()-1;
+        while(filename.charAt(j)!=c){
+            j--;
+        }
+        String file=filename.substring(0, j)+"1";
+        file=file+filename.substring(j,filename.length());
+        /*-------------------------------------------*/
+       filename1=file;
+        
+       
         FileReader fr = null;
         FileWriter fw=null;
         try {
             fr=new FileReader(filename);
+             textArea1.setText("File is found and going to be processed....\n");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -208,16 +232,18 @@ public class input extends javax.swing.JFrame {
                 int x=ch[i];
                 x++;
                 ch[i]=(char)x;
-                System.out.print(ch[i]);
+               
             }
                 
         }
         /* write function according to the algorithm selected */
-      
+        String select=jList1.getSelectedValue();
+        
         
         try {
             fw.write(ch);
-            textField3.setText("Successfully encrypted to the location File name:-"+filename1);
+            //System.out.print("Successfully encrypted to the location File name:-\n"+filename1);
+            textArea1.append("Successfully encrypted to the location \nFile name:-"+filename1+"\nMethod is "+select);
         } catch (IOException ex) {
             Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -234,9 +260,74 @@ public class input extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField3ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField3ActionPerformed
+                String filename=textField1.getText(),filename1="";
+        
+        
+        
+        /*creating output file*/
+        char c='.';
+        int j=filename.length()-1;
+        while(filename.charAt(j)!=c){
+            j--;
+        }
+        String file=filename.substring(0, j)+"1";
+        file=file+filename.substring(j,filename.length());
+        /*-------------------------------------------*/
+       filename1=file;
+        
+       
+        FileReader fr = null;
+        FileWriter fw=null;
+        try {
+            fr=new FileReader(filename);
+            textArea1.setText("File is found and going to be processed....\n");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fw=new FileWriter(filename1);
+           } catch (IOException ex) {
+            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        char ch[]=new char[100];
+        try {
+            fr.read(ch);
+        } catch (IOException ex) {
+            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(int i=0;i<100;i++){
+            if((ch[i]>=65&&ch[i]<=91)||(ch[i]>=98&&ch[i]<=122)){
+                int x=ch[i];
+                x--;
+                ch[i]=(char)x;
+               
+            }
+                
+        }
+        /* write function according to the algorithm selected */
+      
+        
+        try {
+            fw.write(ch);
+            //System.out.print("Successfully encrypted to the location File name:-\n"+filename1);
+            textArea1.append("Successfully decrypted to the location \nFile name:-"+filename1);
+        } catch (IOException ex) {
+            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            fr.close();
+        } catch (IOException ex) {
+            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,6 +366,7 @@ public class input extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
@@ -290,8 +382,8 @@ public class input extends javax.swing.JFrame {
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
+    private java.awt.TextArea textArea1;
     private java.awt.TextField textField1;
     private java.awt.TextField textField2;
-    private java.awt.TextField textField3;
     // End of variables declaration//GEN-END:variables
 }
