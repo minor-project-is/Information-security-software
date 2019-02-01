@@ -30,7 +30,7 @@ public class input extends javax.swing.JFrame {
         di.addElement("1. AES");
         di.addElement("2. Triple DES");
         di.addElement("3. TWO FISH");
-        di.addElement("4. BLOW FISH");
+        di.addElement("4. RSA");
         di.addElement("5. DES");
         jList1.setModel(di);
         
@@ -210,6 +210,14 @@ public class input extends javax.swing.JFrame {
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        /*
+        SWITCH(){
+        case 1:
+        Rsa(filename);
+        }
+        */
+        
+        //the below code will be inside every function 
         String filename=textField1.getText(),filename1="";
         
         
@@ -312,6 +320,7 @@ public class input extends javax.swing.JFrame {
         char ch[]=new char[100];
         try {
             fr.read(ch);
+          
         } catch (IOException ex) {
             Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
         }
