@@ -22,39 +22,33 @@ public class JavaApplication10 {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-             int d=1353,n=4189;
+             int d=8565,n=(int)26077;
      FileReader fr = new FileReader("C:\\Users\\nEW u\\Desktop\\en1.txt");
         FileWriter fw=new FileWriter("C:\\Users\\nEW u\\Desktop\\en2.txt");
-        int ch=fr.read(),number;
+        int ch=fr.read();String number;
         while(ch!=-1){
-          number=0;
+          
           if(ch!=35){
-            if(ch!=36)
-            ch=ch-40;
-            else
-                ch=0;
-            number=number+(ch*1000);
-            ch=fr.read();
-            if(ch!=36)
-            ch=ch-40;
-            else
-                ch=0;
-            number=number+(ch*100);
-            ch=fr.read();
-            if(ch!=36)
-            ch=ch-40;
-            else
-                ch=0;
+            number="";
             
-            number=number+(ch*10);
-            ch=fr.read();
+            for(int i=0;i<7;i++){
+            System.out.print((char)ch);
             if(ch!=36)
             ch=ch-40;
             else
                 ch=0;
-            number=number+(ch*1);
+            number=number+ch;
+            ch=fr.read();
+            
+            }
+             if(ch!=36)
+            ch=ch-40;
+            else
+                ch=0;
+            number=number+ch;
+            //number=number+(char)ch;
             System.out.println(number);
-            BigInteger a=new BigInteger(Integer.toString(number));
+            BigInteger a=new BigInteger(number);
             BigInteger n1=new BigInteger(Integer.toString(n));
             a=a.pow(d);
             a=a.mod(n1);
@@ -68,10 +62,10 @@ public class JavaApplication10 {
                 ch=0;
           }
           else{
-              for(int i=0;i<3;i++)
+              for(int i=0;i<7;i++)
                   ch=fr.read();
               fw.append((char)10);
-              for(int i=0;i<4;i++)
+              for(int i=0;i<8;i++)
                   ch=fr.read();
               fw.append((char)13);
           }

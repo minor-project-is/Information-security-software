@@ -44,7 +44,7 @@ public class JavaApplication1 {
                 break;
         }
         while(true){
-            q=rand.nextInt(100);
+            q=rand.nextInt(1000);
             boolean x=is_prime(q);
             if(x)
                 break;
