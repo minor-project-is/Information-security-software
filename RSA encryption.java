@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Random;
 /**
@@ -38,31 +39,35 @@ public class JavaApplication1 {
         double p,q;
         Random rand=new Random();
         while(true){
-            p=rand.nextInt(100);
+            p=rand.nextInt(100000);
             boolean x=is_prime(p);
             if(x)
                 break;
         }
         while(true){
-            q=rand.nextInt(1000);
+            q=rand.nextInt(10000);
             boolean x=is_prime(q);
             if(x)
                 break;
         }
         System.out.println(p+"   "+q);
         double n=p*q,phi=(p-1)*(q-1);
-        int e=0;
+        
+        BigInteger n1=BigDecimal.valueOf(n).toBigInteger();
+        BigInteger ph=BigDecimal.valueOf(phi).toBigInteger();
+        double e1=0;
         for(double i=phi;i>=0;i--){
             if(is_prime(i))
             {
-                e=(int)i;
+                e1=i;
                 
                 break;
             }
                 
         }
+        BigInteger e=BigDecimal.valueOf(e1).toBigInteger();
         
-        System.out.println("Public key is: n=="+n+" e=="+e);
+        System.out.println("Public key is: n=="+n1+" e=="+e);
         FileReader fr=new FileReader("C:\\Users\\nEW u\\Desktop\\en.txt");
         FileWriter fw=new FileWriter("C:\\Users\\nEW u\\Desktop\\en1.txt");
         double ch=fr.read();int c=0;
@@ -74,19 +79,19 @@ public class JavaApplication1 {
             ch=ch-31.0;
             
                 int cf=(int)ch;
-                int ns=(int)n;
+                //int ns=(int)n;
                 String chl=Integer.toString(cf);
-                String chk=Integer.toString(ns);
+                //String chk=Integer.toString(ns);
                 //String cx="1234.6";
             BigInteger a=new BigInteger(chl);
-            BigInteger n1=new BigInteger(chk);
+            //BigInteger n1=new BigInteger(chk);
             
-            
-            a=a.pow(e);
-            a=a.mod(n1);
+            a=a.modPow(e, n1);
+            //a=a.pow(e);
+            //a=a.mod(n1);
             System.out.println(a);
            String number=a.toString();
-           int def=4-number.length();
+           int def=10-number.length();
            for(int i=0;i<def;i++){
                fw.append("$");
                //System.out.print("$");
@@ -103,7 +108,7 @@ public class JavaApplication1 {
            }
             }
             else{
-                for(int j=0;j<8;j++)
+                for(int j=0;j<20;j++)
                     fw.append("#");
             }
            //System.out.print("\n");
@@ -113,16 +118,32 @@ public class JavaApplication1 {
             
             
         }
+            BigInteger d=new BigInteger("0");
+            BigInteger k=new BigInteger("1");
+            BigInteger one=new BigInteger("1");
+            BigInteger check=new BigInteger("1");
+            while(true){
+                d=k.multiply(ph);
+                d=d.add(one);
+                d=d.divide(e);
+                
+                check=d.multiply(e);
+                check=check.mod(ph);
+                if(check.equals(one))
+                    break;
+                k=k.add(one);
+                
+            }
         //Calculation of 'd'
-        double d;
+        /*double d;
         int k=1;
         while(true){
          d = ( ( k * phi ) +1)/e;
          if(((int)d*e)%phi==1)
              break;
          k++;
-    }
-        System.out.print("Private key:-"+(int)d);
+    }*/
+        System.out.print("Private key:-"+d+"phi "+ph+"n "+n1+"e "+e);
         
        fr.close();
        fw.close();

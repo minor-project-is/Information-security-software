@@ -22,7 +22,8 @@ public class JavaApplication10 {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-             int d=8565,n=(int)26077;
+             BigInteger d=new BigInteger("29160479");
+             BigInteger n=new BigInteger("66301259");
      FileReader fr = new FileReader("C:\\Users\\nEW u\\Desktop\\en1.txt");
         FileWriter fw=new FileWriter("C:\\Users\\nEW u\\Desktop\\en2.txt");
         int ch=fr.read();String number;
@@ -31,7 +32,7 @@ public class JavaApplication10 {
           if(ch!=35){
             number="";
             
-            for(int i=0;i<7;i++){
+            for(int i=0;i<9;i++){
             System.out.print((char)ch);
             if(ch!=36)
             ch=ch-40;
@@ -49,9 +50,10 @@ public class JavaApplication10 {
             //number=number+(char)ch;
             System.out.println(number);
             BigInteger a=new BigInteger(number);
-            BigInteger n1=new BigInteger(Integer.toString(n));
-            a=a.pow(d);
-            a=a.mod(n1);
+           // BigInteger n1=new BigInteger(Integer.toString(n));
+            a=a.modPow(d, n);
+            //a=a.pow(d);
+            //a=a.mod(n);
             System.out.println(a);
             int x=Integer.parseInt(a.toString());
             x=x+31;
@@ -62,10 +64,10 @@ public class JavaApplication10 {
                 ch=0;
           }
           else{
-              for(int i=0;i<7;i++)
+              for(int i=0;i<9;i++)
                   ch=fr.read();
               fw.append((char)10);
-              for(int i=0;i<8;i++)
+              for(int i=0;i<10;i++)
                   ch=fr.read();
               fw.append((char)13);
           }
