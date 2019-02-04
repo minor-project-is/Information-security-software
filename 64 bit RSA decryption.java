@@ -22,8 +22,8 @@ public class JavaApplication10 {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-             BigInteger d=new BigInteger("29160479");
-             BigInteger n=new BigInteger("66301259");
+             BigInteger d=new BigInteger("61650691");
+             BigInteger n=new BigInteger("77082281");
      FileReader fr = new FileReader("C:\\Users\\nEW u\\Desktop\\en1.txt");
         FileWriter fw=new FileWriter("C:\\Users\\nEW u\\Desktop\\en2.txt");
         int ch=fr.read();String number;
@@ -32,7 +32,7 @@ public class JavaApplication10 {
           if(ch!=35){
             number="";
             
-            for(int i=0;i<9;i++){
+            for(int i=0;i<19;i++){
             System.out.print((char)ch);
             if(ch!=36)
             ch=ch-40;
@@ -64,10 +64,10 @@ public class JavaApplication10 {
                 ch=0;
           }
           else{
-              for(int i=0;i<9;i++)
+              for(int i=0;i<19;i++)
                   ch=fr.read();
               fw.append((char)10);
-              for(int i=0;i<10;i++)
+              for(int i=0;i<20;i++)
                   ch=fr.read();
               fw.append((char)13);
           }

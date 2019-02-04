@@ -18,7 +18,7 @@ import java.util.Random;
  * @author 1602366
 */
 public class JavaApplication1 {
-   static boolean is_prime(double x){
+   static boolean is_prime(long x){
        if(x<30)
            return false;
         int count=0,flag=1;
@@ -36,7 +36,7 @@ public class JavaApplication1 {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        double p,q;
+        long p,q;
         Random rand=new Random();
         while(true){
             p=rand.nextInt(100000);
@@ -51,12 +51,13 @@ public class JavaApplication1 {
                 break;
         }
         System.out.println(p+"   "+q);
-        double n=p*q,phi=(p-1)*(q-1);
+        long n=p*q,phi=(p-1)*(q-1);
         
         BigInteger n1=BigDecimal.valueOf(n).toBigInteger();
+       
         BigInteger ph=BigDecimal.valueOf(phi).toBigInteger();
-        double e1=0;
-        for(double i=phi;i>=0;i--){
+        long e1=0;
+        for(long i=phi;i>=0;i--){
             if(is_prime(i))
             {
                 e1=i;
@@ -70,13 +71,13 @@ public class JavaApplication1 {
         System.out.println("Public key is: n=="+n1+" e=="+e);
         FileReader fr=new FileReader("C:\\Users\\nEW u\\Desktop\\en.txt");
         FileWriter fw=new FileWriter("C:\\Users\\nEW u\\Desktop\\en1.txt");
-        double ch=fr.read();int c=0;
+        long ch=fr.read();int c=0;
         //System.out.print(ch);
         while(ch!=-1.0){
             
             if(ch!=13&&ch!=10){
                 System.out.print(ch+" ");
-            ch=ch-31.0;
+            ch=ch-31;
             
                 int cf=(int)ch;
                 //int ns=(int)n;
@@ -91,7 +92,7 @@ public class JavaApplication1 {
             //a=a.mod(n1);
             System.out.println(a);
            String number=a.toString();
-           int def=10-number.length();
+           int def=20-number.length();
            for(int i=0;i<def;i++){
                fw.append("$");
                //System.out.print("$");
@@ -108,7 +109,7 @@ public class JavaApplication1 {
            }
             }
             else{
-                for(int j=0;j<20;j++)
+                for(int j=0;j<40;j++)
                     fw.append("#");
             }
            //System.out.print("\n");
