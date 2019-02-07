@@ -169,10 +169,14 @@ public class input extends javax.swing.JFrame {
              a.setVisible(true);
              break;
          case "2. Triple DES":
-             System.out.print("hjk");
+             triple_des_encrypt x=new triple_des_encrypt();
+             x.setLocationRelativeTo(null);
+             x.setVisible(true);
              break;
          case "3. TWO FISH":
-             System.out.print("hjk");
+             twofish_encrypt y=new twofish_encrypt();
+             y.setLocationRelativeTo(null);
+             y.setVisible(true);
              break;
          case "4. RSA":
              rsa_encrypt e=new rsa_encrypt();
@@ -180,7 +184,9 @@ public class input extends javax.swing.JFrame {
              e.setVisible(true);
              break;
          case "5. DES":
-             System.out.print("hjk");
+             des_encrypt z=new des_encrypt();
+             z.setLocationRelativeTo(null);
+             z.setVisible(true);
              break;
              
      }
@@ -195,10 +201,14 @@ public class input extends javax.swing.JFrame {
              a.setVisible(true);
              break;
          case "2. Triple DES":
-             System.out.print("hjk");
+             triple_des_drcrypt x=new triple_des_drcrypt();
+             x.setLocationRelativeTo(null);
+             x.setVisible(true);
              break;
          case "3. TWO FISH":
-             System.out.print("hjk");
+              twofish_decrypt y=new twofish_decrypt();
+             y.setLocationRelativeTo(null);
+             y.setVisible(true);
              break;
          case "4. RSA":
              rsa_decrypt r=new rsa_decrypt();
@@ -206,7 +216,9 @@ public class input extends javax.swing.JFrame {
              r.setVisible(true);
              break;
          case "5. DES":
-             System.out.print("hjk");
+             des_decrypt z=new des_decrypt();
+             z.setLocationRelativeTo(null);
+             z.setVisible(true);
              break;
              
      }

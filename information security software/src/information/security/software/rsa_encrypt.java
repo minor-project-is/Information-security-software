@@ -20,7 +20,9 @@ public class rsa_encrypt extends javax.swing.JFrame {
     public rsa_encrypt() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("RSA Encrypt");
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,6 +138,7 @@ public class rsa_encrypt extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new rsa_encrypt().setVisible(true);
+               
             }
         });
     }

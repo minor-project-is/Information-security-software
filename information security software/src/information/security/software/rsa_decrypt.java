@@ -20,6 +20,7 @@ public class rsa_decrypt extends javax.swing.JFrame {
     public rsa_decrypt() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("RSA Decrypt");
     }
 
     /**
@@ -160,6 +161,7 @@ public class rsa_decrypt extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new rsa_decrypt().setVisible(true);
+              
             }
         });
     }

@@ -20,6 +20,7 @@ public class aes_decrypt extends javax.swing.JFrame {
     public aes_decrypt() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("AES Decrypt");
     }
 
     /**
