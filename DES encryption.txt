@@ -1,0 +1,436 @@
+import java.util.Scanner;
+public class Solution {
+
+       public static int block64[]=new int[65];
+       public static int blocka32[]=new int[33];
+       public static int blockb32[]=new int[33];
+       public static int blockf32[]=new int[33];
+       public static int blockt32[]=new int[33];
+       
+       public static int chiper64[]=new int[65];
+        public static int chiper56[]=new int[57];
+        public static int chipera28[]=new int[29];
+        public static int chiperb28[]=new int[29];
+        public static int key48[][]=new int[17][49];
+
+           public static String intialper[][]={{"58","50","42","34","26","18","10","02"},
+                            {"60","52","44","36","28","20","12","04"},
+                            {"62","54","46","38","30","22","14","06"},
+                            {"64","56","48","40","32","24","16","08"},
+                            {"57","49","41","33","25","17","09","01"},
+                            {"59","51","43","35","27","19","11","03"},
+                            {"61","53","45","37","29","21","13","05"},
+                            {"63","55","47","39","31","23","15","07"}};
+
+        public static String parity[][]={{"57","49","41","33","25","17","09","01"},
+        {"58","50","42","34","26","18","10","02"},
+        {"59","51","43","35","27","19","11","03"},
+        {"60","52","44","36","63","55","47","39"},
+        {"31","23","15","07","62","54","46","38"},
+        {"30","22","14","06","61","53","45","37"},
+        {"29","21","13","05","28","20","12","04"}};
+
+    public static String finalper[][]={{"40","08","48","16","56","24","64","32"},
+                            {"39","07","47","15","55","23","63","31"},
+                            {"38","06","46","14","54","22","62","30"},
+                            {"37","05","45","13","53","21","61","29"},
+                            {"36","04","44","12","52","20","60","28"},
+                            {"35","03","43","11","51","19","59","27"},
+                            {"34","02","42","10","50","18","58","26"},
+                            {"33","01","41","09","49","17","57","25"}};
+
+    public static String comp[][]={{"14","17","11","24","01","05","03","28"},
+                                    {"15","06","21","10","23","19","12","04"},
+                                    {"26","08","16","07","27","20","13","02"},
+                                    {"41","52","31","37","47","55","30","40"},
+                                    {"51","45","33","48","44","49","39","56"},
+                                    {"34","53","46","42","50","36","29","32"}};
+
+    public static String expdbox[][]={{"32","01","02","03","04","05"},
+                                        {"04","05","06","07","08","09"},
+                                        {"08","09","10","11","12","13"},
+                                        {"12","13","14","15","16","17"},
+                                        {"16","17","18","19","20","21"},
+                                        {"20","21","22","23","24","25"},
+                                        {"24","25","26","27","28","29"},
+                                        {"28","29","30","31","32","01"}};
+
+
+    public static String fpbox[][]={{"16","07","20","21","29","12","28","17"},
+                                    {"01","15","23","26","05","18","31","10"},
+                                    {"02","08","24","14","32","27","03","09"},
+                                    {"19","13","30","06","22","11","04","25"}};
+
+
+    public static String s[][][]={{{"14","04","13","01","02","15","11","08","03","10","06","12","05","09","00","07"},
+    {"00","15","07","04","14","02","13","01","10","06","12","11","09","05","03","08"},
+    {"04","01","14","08","13","06","02","11","15","12","09","07","03","10","05","00"},
+    {"15","12","08","02","04","9","01","07","05","11","03","14","10","00","06","13"}},
+
+    {{"15","01","08","14","06","11","03","04","09","07","02","13","12","00","05","10"},
+    {"03","13","04","07","15","02","08","14","12","00","01","10","06","09","11","05"},
+    {"00","14","07","11","10","04","13","01","05","08","12","06","09","03","02","15"},
+    {"13","08","10","01","03","15","04","02","11","06","07","12","00","05","14","09"}},
+    
+    {{"10","00","09","14","06","03","15","05","01","13","12","07","11","04","02","08"},
+    {"13","07","00","09","03","04","06","10","02","08","05","14","12","11","15","01"},
+    {"13","06","04","09","08","15","03","00","11","01","02","12","05","10","14","07"},
+    {"01","10","13","00","06","09","08","07","04","15","14","03","11","05","02","12"}},
+    
+    {{"07","13","14","03","00","06","09","10","01","02","08","05","11","12","04","15"},
+    {"13","08","11","05","06","15","00","03","04","07","02","12","01","10","14","09"},
+    {"10","06","09","00","12","11","07","13","15","01","03","14","05","02","08","04"},
+    {"03","15","00","06","10","01","13","08","09","04","05","11","12","07","02","14"}},
+
+    {{"02","12","04","01","07","10","11","06","08","05","03","15","13","00","14","09"},
+    {"14","11","02","12","04","07","13","01","05","00","15","10","03","09","08","06"},
+    {"04","02","01","11","10","13","07","08","15","09","12","05","06","03","00","14"},
+    {"11","08","12","07","01","14","02","13","06","15","00","09","10","04","05","03"}},
+
+    {{"12","01","10","15","09","02","06","08","00","13","03","04","14","07","05","11"},
+    {"10","15","04","02","07","12","09","05","06","01","13","14","00","11","03","08"},
+    {"09","14","15","05","02","08","12","03","07","00","04","10","01","13","11","06"},
+    {"04","03","02","12","09","05","15","10","11","14","01","07","06","00","08","13"}},
+
+    {{"04","11","02","14","15","00","08","13","03","12","09","07","05","10","06","01"},
+    {"13","00","11","07","04","09","01","10","14","03","05","12","02","15","08","06"},
+    {"01","04","11","13","12","03","07","14","10","15","06","08","00","05","09","02"},
+    {"06","11","13","08","01","04","10","07","09","05","00","15","14","02","03","12"}},
+
+    {{"13","02","08","04","06","15","11","01","10","09","03","14","05","00","12","07"},
+    {"01","15","13","08","10","03","07","04","12","05","06","11","00","14","09","02"},
+    {"07","11","04","01","09","12","14","02","00","06","10","13","15","03","05","08"},
+    {"02","01","14","07","04","10","08","13","15","12","09","00","03","05","06","11"}}
+      
+    
+    };
+
+
+    public static void leftshift(){
+        
+        int temp=chipera28[1];
+        for(int i=2;i<=28;i++){
+            chipera28[i-1]=chipera28[i];
+        }
+        chipera28[28]=temp;
+        temp=chiperb28[1];
+        for(int i=2;i<=28;i++){
+            chiperb28[i-1]=chiperb28[i];
+        }
+        chiperb28[28]=temp;
+
+    }
+
+    public static void compresion(int roundkey){
+        int con=1;
+        for(int i=0;i<6;i++){
+            for(int j=0;j<8;j++){
+                int te;
+                if(Integer.parseInt(comp[i][j])<=28){
+                    te=chipera28[Integer.parseInt(comp[i][j])];
+                }
+                else{
+                    te=chiperb28[Integer.parseInt(comp[i][j])-28];
+                }
+                key48[roundkey][con++]=te;
+            }
+        }
+    }
+    public static void paritydrop(){
+        int con=1;
+        for(int i=0;i<7;i++){
+            for(int j=0;j<8;j++){
+                chiper56[con++]=chiper64[Integer.parseInt(parity[i][j])];
+            }
+        }
+    }
+
+
+
+    public static void keygenration(){
+        paritydrop();
+        for(int i=1;i<29;i++){
+            chipera28[i]=chiper56[i];
+        }
+        int j=1;
+        for(int i=29;i<57;i++){
+            chiperb28[j++]=chiper56[i];
+        }
+        for(int i=1;i<=16;i++){
+            if(i!=1&&i!=2&&i!=9&&i!=16)
+            leftshift();
+            leftshift();
+            compresion(i);
+        }
+
+    }
+    public static void des_fun(int roundno){
+         int blockt48[]=new int[49];
+        //key expansion step
+        int con=1;
+        for(int i=0;i<8;i++){
+            for(int j=0;j<6;j++){
+                blockt48[con++]=blockb32[Integer.parseInt(expdbox[i][j])];
+            }
+        }
+        
+        //xor of the round key and expansion chiper
+        for(int i=1;i<=48;i++){
+            blockt48[i]=blockt48[i]^key48[roundno][i];
+        }
+        
+        //work for the sutitution box
+        int j=1,k=4;
+        for(int i=0;i<8;i++){
+            int x,y,a,b,cl,d;
+            x=blockt48[j++];
+            a=blockt48[j++];
+            b=blockt48[j++];
+            cl=blockt48[j++];
+            d=blockt48[j++];
+            y=blockt48[j++];
+            int r=(x*2)+(y*1);
+            int c=(a*(2*2*2))+(b*(2*2))+(cl*(2))+(d*1);
+            int val=Integer.parseInt(s[i][r][c]);
+            
+            /*if(val>8){
+                    while(val!=0){
+                        int temp=val%2;
+                        blockt32[k--]=temp;
+                        val=val/2;
+                    }
+                    k=k+8;
+            }*/
+            //else{
+                int flag=4;
+                while(val!=0){
+                        int temp=val%2;
+                        blockt32[k--]=temp;
+                        val=val/2;
+                        flag--;
+                    }
+                    while(flag!=0){
+                        blockt32[k--]=0;
+                        flag--;
+                    }
+                    k=k+8;
+            //}
+            //System.out.println(k);
+
+        }
+
+        //final permutation
+        int z=1;
+        for(int i=0;i<4;i++){
+            for(int m=0;m<8;m++){
+            blockf32[z++]=blockt32[Integer.parseInt(fpbox[i][m])];
+            }
+        }
+        
+      
+    }
+
+    public static void xorit(){
+        for(int i=1;i<=32;i++){
+            blocka32[i]=blocka32[i]^blockf32[i];
+        }
+
+    }
+
+    public static void swapit(){
+        int j=1;
+        for(int i=1;i<=32;i++){
+            int temp=blocka32[i];
+            blocka32[i]=blockb32[j];
+            blockb32[j]=temp;
+            j++;
+        }
+
+    }
+    public static void fiit(){
+        for(int i=1;i<=32;i++)
+        block64[i]=blocka32[i];
+        int j=1;
+        for(int i=33;i<=64;i++)
+        block64[i]=blockb32[j++];
+    }
+    public static void init(){
+        for(int i=1;i<=32;i++)
+        blocka32[i]=block64[i];
+        int j=1;
+        for(int i=33;i<=64;i++)
+        blockb32[j++]=block64[i];
+    }
+
+    public static void feistal_chiper(int roundno){
+        
+        des_fun(roundno);
+        xorit();
+        if(roundno!=16)
+        swapit();
+
+    }
+
+
+    public static void intial_per(){
+        int temp[]=new int[65];
+        int con=1;
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                int x=Integer.parseInt(intialper[i][j]);
+                temp[con]=block64[x];
+                con++;
+            }
+        }
+        for(int i=1;i<65;i++){
+            block64[i]=temp[i];
+        }
+    }
+
+    public static void final_per(){
+            int temp[]=new int[65];
+        int con=1;
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                int x=Integer.parseInt(finalper[i][j]);
+                temp[con]=block64[x];
+                con++;
+            }
+        }
+        for(int i=1;i<65;i++){
+            block64[i]=temp[i];
+        }
+    }
+
+        public static void setblock(String text){
+
+            int k=8,flag=0,con=2;
+            for(int i=0;i<8;i++){
+                int x=text.charAt(i);
+                //System.out.println(x);
+                while(x>0){
+                    block64[k--]=(x%2);
+                    x=x/2;
+                    flag++;
+                }
+    k=con*8;
+    con++;
+            }
+        }
+                public static void setkey(String text){
+
+            int k=8,flag=0,con=2;
+            for(int i=0;i<8;i++){
+                int x=text.charAt(i);
+                while(x>0){
+                    chiper64[k--]=(x%2);
+                    x=x/2;
+                    flag++;
+                }
+    k=con*8;
+    con++;
+            }
+        }
+                public static void getblock(){
+            for(int i=1;i<65;i=i+8){
+                int a=block64[i];
+                int b=block64[i+1];
+                int c=block64[i+2];
+                int d=block64[i+3];
+                int e=block64[i+4];
+                int f=block64[i+5];
+                int g=block64[i+6];
+                int h=block64[i+7];
+                int val=(a*2*2*2*2*2*2*2)+(b*2*2*2*2*2*2)+(c*2*2*2*2*2)+(d*2*2*2*2)+(e*2*2*2)+(f*2*2)+(g*2)+(h);
+                System.out.print((char)val);
+            }
+        }
+        public static String checktk(String t){
+            if(t.length()>=8)
+            return t;
+            while(t.length()<8){
+                t=t+"$";
+            }
+            return t;
+        }
+    public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+        //int i = scan.nextInt();
+        String text=scan.nextLine();
+        String key=scan.nextLine();
+        text=checktk(text);
+        key=checktk(key);
+        setblock(text);
+        setkey(key);
+        //for demo
+        /*for(int i=1;i<33;i++){
+            //if(i%2!=0)
+            block64[i]=1;
+        }*/
+        /*System.out.println("the message");
+        for(int i=1;i<65;i++){
+            System.out.print(block64[i]);
+        }*/
+        System.out.print("\n");
+       /* for(int i=1;i<57;i++){
+            if(i%2==0)
+            chiper56[i]=1;
+            else
+            chiper56[i]=0;
+        }*/
+        
+        keygenration();
+        /*System.out.println("the keys");
+        for(int i=1;i<17;i++){
+            for(int j=1;j<=48;j++){
+                System.out.print(key48[i][j]);
+            }
+            System.out.print("\n");
+        }*/
+        
+        intial_per();
+        /*System.out.println("intial permutaion:-");
+        for(int i=1;i<65;i++){
+            System.out.print(block64[i]);
+        }
+        System.out.println("\nThe intial two parts of the block");
+*/
+        init();
+        /*for(int j=1;j<33;j++){
+            System.out.print(blocka32[j]);
+        }*/
+        //System.out.print(" ");
+        /*for(int j=1;j<33;j++){
+            System.out.print(blockb32[j]);
+        }
+        System.out.print("\n");
+        System.out.println("\nThe  two parts of the block");*/
+        for(int i=1;i<=16;i++){
+        feistal_chiper(i);
+        /*for(int j=1;j<33;j++){
+            System.out.print(blocka32[j]);
+        }
+        System.out.print(" ");
+        for(int j=1;j<33;j++){
+            System.out.print(blockb32[j]);
+        }
+        System.out.print("\n");*/
+        }
+        fiit();
+        /*System.out.println("the combination");
+        for(int i=1;i<65;i++){
+            System.out.print(block64[i]);
+        }*/
+        final_per();
+        
+        /*System.out.println("\nthe final chipertext");
+        for(int i=1;i<65;i++){
+            System.out.print(block64[i]);
+        }*/
+        System.out.print("\n");
+        getblock();
+        /* Enter your code here. Print output to STDOUT. Your class should be named Solution. */
+
+
+    }
+}

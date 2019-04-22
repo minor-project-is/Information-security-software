@@ -24,9 +24,10 @@ public class input extends javax.swing.JFrame {
     /**
      * Creates new form input
      */
+    DefaultListModel di=new DefaultListModel();
     public input() {
         initComponents();
-        DefaultListModel di=new DefaultListModel();
+        
         di.addElement("1. AES");
         di.addElement("2. Triple DES");
         di.addElement("3. TWO FISH");
@@ -59,17 +60,17 @@ public class input extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jFileChooser1 = new javax.swing.JFileChooser();
         jFileChooser2 = new javax.swing.JFileChooser();
-        textField1 = new java.awt.TextField();
-        jLabel1 = new javax.swing.JLabel();
-        textField2 = new java.awt.TextField();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        textArea1 = new java.awt.TextArea();
         jButton2 = new javax.swing.JButton();
+<<<<<<< HEAD
         jButton3 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
+=======
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+>>>>>>> 2283550457419cf93f0f6a7465d1ae4436b7df4d
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -98,18 +99,6 @@ public class input extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 51, 0));
         setForeground(java.awt.Color.white);
 
-        textField1.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 18)); // NOI18N
-        textField1.setText("");
-
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        jLabel1.setText("Input file address");
-
-        textField2.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 18)); // NOI18N
-        textField2.setText("");
-
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
-        jLabel2.setText("Cipher");
-
         jButton1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jButton1.setText("Encrypt");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +116,6 @@ public class input extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        textArea1.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 18)); // NOI18N
-
         jButton2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jButton2.setText("Decrypt");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -137,19 +124,18 @@ public class input extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jButton3.setText("B");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("A encryption and decryption software \nAs an information security project\nMade by :");
+        jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -184,10 +170,26 @@ public class input extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                         .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(220, 220, 220))))
+=======
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jButton1)
+                        .addGap(50, 50, 50)
+                        .addComponent(jButton2)
+                        .addContainerGap(40, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
+>>>>>>> 2283550457419cf93f0f6a7465d1ae4436b7df4d
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
                 .addGap(63, 63, 63)
@@ -210,6 +212,18 @@ public class input extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1))
+=======
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 2283550457419cf93f0f6a7465d1ae4436b7df4d
         );
 
         pack();
@@ -217,160 +231,68 @@ public class input extends javax.swing.JFrame {
 
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        /*
-        SWITCH(){
-        case 1:
-        Rsa(filename);
-        }
-        */
-        
-        //the below code will be inside every function 
-        String filename=textField1.getText(),filename1="";
-        
-        
-        
-        /*creating output file*/
-        char c='.';
-        int j=filename.length()-1;
-        while(filename.charAt(j)!=c){
-            j--;
-        }
-        String file=filename.substring(0, j)+"1";
-        file=file+filename.substring(j,filename.length());
-        /*-------------------------------------------*/
-       filename1=file;
-        
-       
-        FileReader fr = null;
-        FileWriter fw=null;
-        try {
-            fr=new FileReader(filename);
-             textArea1.setText("File is found and going to be processed....\n");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            fw=new FileWriter(filename1);
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        char ch[]=new char[100];
-        try {
-            fr.read(ch);
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for(int i=0;i<100;i++){
-            if((ch[i]>=65&&ch[i]<=91)||(ch[i]>=98&&ch[i]<=122)){
-                int x=ch[i];
-                x++;
-                ch[i]=(char)x;
-               
-            }
-                
-        }
-        /* write function according to the algorithm selected */
-        String select=jList1.getSelectedValue();
-        
-        
-        try {
-            fw.write(ch);
-            //System.out.print("Successfully encrypted to the location File name:-\n"+filename1);
-            textArea1.append("Successfully encrypted to the location \nFile name:-"+filename1+"\nMethod is "+select);
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            fr.close();
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     String choice=jList1.getSelectedValue();
+     switch(choice){
+         case "1. AES":
+             aes_encrypt a=new aes_encrypt();
+             a.setLocationRelativeTo(null);
+             a.setVisible(true);
+             break;
+         case "2. Triple DES":
+             triple_des_encrypt x=new triple_des_encrypt();
+             x.setLocationRelativeTo(null);
+             x.setVisible(true);
+             break;
+         case "3. TWO FISH":
+             twofish_encrypt y=new twofish_encrypt();
+             y.setLocationRelativeTo(null);
+             y.setVisible(true);
+             break;
+         case "4. RSA":
+             rsa_encrypt e=new rsa_encrypt();
+             e.setLocationRelativeTo(null);
+             e.setVisible(true);
+             break;
+         case "5. DES":
+             des_encrypt z=new des_encrypt();
+             z.setLocationRelativeTo(null);
+             z.setVisible(true);
+             break;
+             
+     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-                String filename=textField1.getText(),filename1="";
-        
-        
-        
-        /*creating output file*/
-        char c='.';
-        int j=filename.length()-1;
-        while(filename.charAt(j)!=c){
-            j--;
-        }
-        String file=filename.substring(0, j)+"1";
-        file=file+filename.substring(j,filename.length());
-        /*-------------------------------------------*/
-       filename1=file;
-        
-       
-        FileReader fr = null;
-        FileWriter fw=null;
-        try {
-            fr=new FileReader(filename);
-            textArea1.setText("File is found and going to be processed....\n");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            fw=new FileWriter(filename1);
-           } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        char ch[]=new char[100];
-        try {
-            fr.read(ch);
-          
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        for(int i=0;i<100;i++){
-            if((ch[i]>=65&&ch[i]<=91)||(ch[i]>=98&&ch[i]<=122)){
-                int x=ch[i];
-                x--;
-                ch[i]=(char)x;
-               
-            }
-                
-        }
-        /* write function according to the algorithm selected */
-      
-        
-        try {
-            fw.write(ch);
-            //System.out.print("Successfully encrypted to the location File name:-\n"+filename1);
-            textArea1.append("Successfully decrypted to the location \nFile name:-"+filename1);
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            fr.close();
-        } catch (IOException ex) {
-            Logger.getLogger(input.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     String choice=jList1.getSelectedValue();
+     switch(choice){
+         case "1. AES":
+             aes_decrypt a=new aes_decrypt();
+             a.setLocationRelativeTo(null);
+             a.setVisible(true);
+             break;
+         case "2. Triple DES":
+             triple_des_drcrypt x=new triple_des_drcrypt();
+             x.setLocationRelativeTo(null);
+             x.setVisible(true);
+             break;
+         case "3. TWO FISH":
+              twofish_decrypt y=new twofish_decrypt();
+             y.setLocationRelativeTo(null);
+             y.setVisible(true);
+             break;
+         case "4. RSA":
+             rsa_decrypt r=new rsa_decrypt();
+             r.setLocationRelativeTo(null);
+             r.setVisible(true);
+             break;
+         case "5. DES":
+             des_decrypt z=new des_decrypt();
+             z.setLocationRelativeTo(null);
+             z.setVisible(true);
+             break;
+             
+     }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser cho=new JFileChooser();
-        cho.showOpenDialog(null);
-        File f=cho.getSelectedFile();
-        textField1.setText(f.getAbsolutePath());
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,11 +332,8 @@ public class input extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFileChooser jFileChooser2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -426,11 +345,10 @@ public class input extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextField textField1;
-    private java.awt.TextField textField2;
     // End of variables declaration//GEN-END:variables
 }
